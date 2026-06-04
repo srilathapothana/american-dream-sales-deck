@@ -43,7 +43,7 @@ export default function Dining() {
 
   return (
     <section
-      id="dining"
+      id="dining" aria-label="Dining and lifestyle"
       ref={ref}
       className="snap"
       style={{
@@ -133,6 +133,7 @@ export default function Dining() {
               </div>
 
               <button
+                aria-label="View F&B leasing opportunities"
                 className="btn-gold"
                 onClick={() => document.getElementById("leasing")?.scrollIntoView({ behavior: "smooth" })}
               >

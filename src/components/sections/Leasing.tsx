@@ -107,7 +107,7 @@ export default function Leasing() {
 
   return (
     <section
-      id="leasing"
+      id="leasing" aria-label="Leasing opportunities"
       ref={ref}
       className="snap"
       style={{
@@ -217,7 +217,7 @@ export default function Leasing() {
             </ul>
 
             <button
-              className="btn-gold"
+              aria-label="Request leasing information — go to contact" className="btn-gold"
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
             >
               <span>{data.cta}</span>

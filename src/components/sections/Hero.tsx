@@ -26,7 +26,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="snap" style={{
+    <section id="hero" className="snap" aria-label="Hero — American Dream introduction" style={{
       position: "relative",
       height: "100vh",
       width: "100%",
@@ -184,11 +184,11 @@ export default function Hero() {
           opacity: loaded ? 1 : 0,
           transition: "opacity 0.8s ease 1s",
         }}>
-          <button className="btn-gold"
+          <button aria-label="Explore leasing opportunities" className="btn-gold"
             onClick={() => document.getElementById("leasing")?.scrollIntoView({ behavior: "smooth" })}>
             <span>Explore Leasing</span>
           </button>
-          <button className="btn-gold"
+          <button aria-label="Discover the property — go to why section" className="btn-gold"
             style={{ borderColor: "rgba(255,255,255,0.22)", color: "var(--pearl)" }}
             onClick={() => document.getElementById("why")?.scrollIntoView({ behavior: "smooth" })}>
             <span>Discover the Property</span>

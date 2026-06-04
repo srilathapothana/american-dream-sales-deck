@@ -24,7 +24,7 @@ export default function Entertainment() {
   }, []);
 
   return (
-    <section id="entertainment" ref={ref} className="snap" style={{ minHeight: "100vh", background: "var(--void)", position: "relative", overflow: "hidden", padding: "100px 60px" }}>
+    <section id="entertainment" aria-label="Attractions and entertainment" ref={ref} className="snap" style={{ minHeight: "100vh", background: "var(--void)", position: "relative", overflow: "hidden", padding: "100px 60px" }}>
 
       {/* Scroll-triggered YouTube video background */}
       {visible && (
@@ -72,7 +72,7 @@ export default function Entertainment() {
                 <div style={{ fontFamily: "var(--font-display)", fontSize: "2.8rem", color: "var(--gold-light)", fontWeight: 300, lineHeight: 1 }}>{ATTRACTIONS[active].stat}</div>
                 <div className="label" style={{ color: "var(--silver)", marginTop: "4px" }}>{ATTRACTIONS[active].statLabel}</div>
               </div>
-              <button className="btn-gold" onClick={() => document.getElementById("events")?.scrollIntoView({ behavior: "smooth" })}><span>Activate with This Venue</span></button>
+              <button aria-label="Activate this venue — go to events section" className="btn-gold" onClick={() => document.getElementById("events")?.scrollIntoView({ behavior: "smooth" })}><span>Activate with This Venue</span></button>
             </div>
           </div>
         </ResponsiveGrid>

@@ -74,9 +74,18 @@ export default function SectionProgress() {
       {SECTIONS.map((s, i) => (
         <button
           key={s.id}
-          title={s.label}
+          aria-label={`Go to ${s.label}`}
+          aria-current={i === active ? "true" : undefined}
           onClick={() => document.getElementById(s.id)?.scrollIntoView({ behavior: "smooth" })}
           style={{
+            width: "44px", height: "44px",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            background: "none", border: "none", cursor: "none", padding: 0,
+            flexShrink: 0,
+          }}
+        >
+          <span style={{
+            display: "block",
             width: i === active ? "24px" : "4px",
             height: "4px",
             borderRadius: "2px",
@@ -85,12 +94,9 @@ export default function SectionProgress() {
               : i < active
               ? "rgba(201,168,76,0.35)"
               : "rgba(255,255,255,0.12)",
-            border: "none",
-            cursor: "none",
-            padding: 0,
             transition: "all 0.35s cubic-bezier(0.25,0.46,0.45,0.94)",
-          }}
-        />
+          }} />
+        </button>
       ))}
 
       {/* Section label */}

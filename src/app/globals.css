@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Bebas+Neue&display=swap&font-display=swap');
 
 @import "tailwindcss";
 
@@ -9,7 +9,7 @@
   --graphite: #1a1a1a;
   --smoke: #2a2a2a;
   --ash: #444444;
-  --silver: #888888;
+  --silver: #aaaaaa;
   --pearl: #cccccc;
   --white: #f5f5f5;
   --pure: #ffffff;

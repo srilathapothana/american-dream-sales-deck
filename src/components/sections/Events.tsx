@@ -63,7 +63,7 @@ export default function Events() {
 
   return (
     <section
-      id="events"
+      id="events" aria-label="Events and platform"
       ref={ref}
       className="snap"
       style={{
@@ -234,10 +234,10 @@ export default function Events() {
               ))}
             </div>
             <button
+              aria-label="Book this event type — go to contact"
               className="btn-gold"
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
             >
-              <span>Book This Event Type</span>
             </button>
           </div>
         </div>

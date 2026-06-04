@@ -47,7 +47,7 @@ export default function Sponsorship() {
   const tier = TIERS[activeTier];
 
   return (
-    <section id="sponsorship" ref={ref} className="snap" style={{ minHeight: "100vh", background: "var(--void)", position: "relative", overflow: "hidden", padding: "100px 60px 80px" }}>
+    <section id="sponsorship" aria-label="Sponsorship and brand partnerships" ref={ref} className="snap" style={{ minHeight: "100vh", background: "var(--void)", position: "relative", overflow: "hidden", padding: "100px 60px 80px" }}>
       <BgImage src="https://image.pollinations.ai/prompt/luxury%20brand%20activation%20event%20inside%20shopping%20mall%20atrium%2C%20branded%20displays%20and%20immersive%20experience%20installations%2C%20dramatic%20lighting%2C%20photorealistic%208k?width=1400&height=900&nologo=true&seed=606" opacity={0.05} />
 
       <div style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 1 }}>
@@ -92,7 +92,7 @@ export default function Sponsorship() {
                 <div className="label" style={{ marginBottom: "6px", color: "var(--silver)" }}>Audience Reach</div>
                 <div style={{ fontFamily: "var(--font-display)", fontSize: "2rem", color: tier.color, fontWeight: 300 }}>{tier.audience}</div>
               </div>
-              <button className="btn-gold" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
+              <button aria-label="Request sponsorship package — go to contact" className="btn-gold" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
                 <span>Start a Partnership Conversation</span>
               </button>
             </div>

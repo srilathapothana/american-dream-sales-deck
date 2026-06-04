@@ -19,7 +19,7 @@ import Contact from "@/components/sections/Contact";
 
 export default function Home() {
   return (
-    <main className="grain">
+    <div className="grain">
       <Cursor />
       <Nav />
       <SectionProgress />
@@ -34,6 +34,6 @@ export default function Home() {
       <Leasing />
       <Sponsorship />
       <Contact />
-    </main>
+    </div>
   );
 }

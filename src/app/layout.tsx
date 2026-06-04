@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import SkipLink from "@/components/ui/SkipLink";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://american-dream-sales-deck-ashy.vercel.app"),
   title: "American Dream — The World's Most Entertaining Destination",
   description: "Interactive Sales Deck for Prospective Tenants, Sponsors & Event Partners",
   openGraph: {
@@ -11,6 +13,12 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -18,7 +26,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning>{children}</body>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body suppressHydrationWarning>
+        <SkipLink />
+        <main id="main-content" role="main" aria-label="American Dream interactive sales deck">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }

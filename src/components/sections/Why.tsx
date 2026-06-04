@@ -32,7 +32,7 @@ export default function Why() {
 
   return (
     <section
-      id="why"
+      id="why" aria-label="Why American Dream — location and demographics"
       ref={ref}
       className="snap"
       style={{

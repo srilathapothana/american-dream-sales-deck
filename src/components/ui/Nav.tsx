@@ -70,38 +70,59 @@ export default function Nav() {
         transition: "background 0.4s ease, border-color 0.4s ease",
       }}>
         {/* Logo */}
-        <button onClick={() => scrollTo("hero")} style={{
-          background: "none", border: "none", cursor: "none",
-          fontFamily: "var(--font-display)", fontSize: "1.05rem",
-          fontWeight: 300, color: "var(--white)", letterSpacing: "0.06em",
-        }}>
+        <button
+          onClick={() => scrollTo("hero")}
+          aria-label="Go to top — American Dream"
+          style={{
+            background: "none", border: "none", cursor: "none",
+            fontFamily: "var(--font-display)", fontSize: "1.05rem",
+            fontWeight: 300, color: "var(--white)", letterSpacing: "0.06em",
+            minHeight: "44px", minWidth: "44px",
+          }}>
           AMERICAN <em style={{ color: "var(--gold)" }}>DREAM</em>
         </button>
 
         {/* Desktop nav links */}
         <div style={{ display: "flex", alignItems: "center", gap: "28px" }}>
           {["why", "events", "venues", "leasing", "sponsorship"].map((id) => (
-            <button key={id} onClick={() => scrollTo(id)} className="hover-line" style={{
-              background: "none", border: "none", cursor: "none",
-              fontFamily: "var(--font-body)", fontSize: "0.62rem",
-              letterSpacing: "0.22em", textTransform: "uppercase",
-              color: active === id ? "var(--gold)" : "var(--pearl)",
-              transition: "color 0.3s ease", padding: 0,
-            }}>
+            <button
+              key={id}
+              onClick={() => scrollTo(id)}
+              aria-label={`Navigate to ${sections.find((s) => s.id === id)?.label}`}
+              aria-current={active === id ? "true" : undefined}
+              className="hover-line"
+              style={{
+                background: "none", border: "none", cursor: "none",
+                fontFamily: "var(--font-body)", fontSize: "0.62rem",
+                letterSpacing: "0.22em", textTransform: "uppercase",
+                color: active === id ? "var(--gold)" : "var(--pearl)",
+                transition: "color 0.3s ease", padding: "10px 4px",
+                minHeight: "44px",
+              }}>
               {sections.find((s) => s.id === id)?.label}
             </button>
           ))}
 
-          <button onClick={() => scrollTo("contact")} className="btn-gold"
-            style={{ padding: "9px 22px", fontSize: "0.58rem" }}>
+          <button
+            onClick={() => scrollTo("contact")}
+            aria-label="Get in touch — go to contact section"
+            className="btn-gold"
+            style={{ padding: "9px 22px", fontSize: "0.58rem", minHeight: "44px" }}>
             <span>Get in Touch</span>
           </button>
 
           {/* Hamburger */}
-          <button onClick={() => setNavOpen(!navOpen)} style={{
-            background: "none", border: "none", cursor: "none",
-            display: "flex", flexDirection: "column", gap: "5px", padding: "4px",
-          }}>
+          <button
+            onClick={() => setNavOpen(!navOpen)}
+            aria-label={navOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={navOpen}
+            aria-controls="fullscreen-nav"
+            style={{
+              background: "none", border: "none", cursor: "none",
+              display: "flex", flexDirection: "column", gap: "5px",
+              padding: "12px 8px", minHeight: "44px", minWidth: "44px",
+              alignItems: "center", justifyContent: "center",
+            }}>
             {[0, 1, 2].map((i) => (
               <span key={i} style={{
                 display: "block",
@@ -118,28 +139,39 @@ export default function Nav() {
       </nav>
 
       {/* ── Full-screen menu overlay ── */}
-      <div style={{
-        position: "fixed", inset: 0, zIndex: 1999,
-        background: "rgba(5,5,5,0.97)",
-        display: "flex", flexDirection: "column",
-        alignItems: "center", justifyContent: "center", gap: "4px",
-        opacity: navOpen ? 1 : 0,
-        pointerEvents: navOpen ? "all" : "none",
-        transition: "opacity 0.4s ease",
-      }}>
+      <div
+        id="fullscreen-nav"
+        role="dialog"
+        aria-label="Full navigation menu"
+        aria-modal="true"
+        style={{
+          position: "fixed", inset: 0, zIndex: 1999,
+          background: "rgba(5,5,5,0.97)",
+          display: "flex", flexDirection: "column",
+          alignItems: "center", justifyContent: "center", gap: "4px",
+          opacity: navOpen ? 1 : 0,
+          pointerEvents: navOpen ? "all" : "none",
+          transition: "opacity 0.4s ease",
+        }}>
         {sections.map((s, i) => (
-          <button key={s.id} onClick={() => scrollTo(s.id)} style={{
-            background: "none", border: "none", cursor: "none",
-            fontFamily: "var(--font-display)",
-            fontSize: "clamp(2rem, 5vw, 3.5rem)",
-            fontWeight: 300,
-            color: active === s.id ? "var(--gold)" : "var(--ash)",
-            letterSpacing: "-0.02em",
-            lineHeight: 1.4,
-            transition: "color 0.3s ease",
-            transform: navOpen ? "translateY(0)" : "translateY(20px)",
-            transitionDelay: `${i * 0.04}s`,
-          }}
+          <button
+            key={s.id}
+            onClick={() => scrollTo(s.id)}
+            aria-label={`Navigate to ${s.label}`}
+            aria-current={active === s.id ? "page" : undefined}
+            style={{
+              background: "none", border: "none", cursor: "none",
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(2rem, 5vw, 3.5rem)",
+              fontWeight: 300,
+              color: active === s.id ? "var(--gold)" : "var(--ash)",
+              letterSpacing: "-0.02em",
+              lineHeight: 1.4,
+              transition: "color 0.3s ease",
+              transform: navOpen ? "translateY(0)" : "translateY(20px)",
+              transitionDelay: `${i * 0.04}s`,
+              minHeight: "44px", padding: "4px 16px",
+            }}
             onMouseEnter={(e) => { (e.target as HTMLElement).style.color = "var(--white)"; }}
             onMouseLeave={(e) => { (e.target as HTMLElement).style.color = active === s.id ? "var(--gold)" : "var(--ash)"; }}
           >
@@ -149,19 +181,33 @@ export default function Nav() {
       </div>
 
       {/* ── Side dot nav ── */}
-      <div style={{
-        position: "fixed", right: "20px", top: "50%",
-        transform: "translateY(-50%)", zIndex: 1998,
-        display: "flex", flexDirection: "column", gap: "10px", alignItems: "center",
-      }}>
+      <div
+        role="navigation"
+        aria-label="Section navigation dots"
+        style={{
+          position: "fixed", right: "20px", top: "50%",
+          transform: "translateY(-50%)", zIndex: 1998,
+          display: "flex", flexDirection: "column", gap: "4px", alignItems: "center",
+        }}>
         {sections.map((s) => (
-          <button key={s.id} onClick={() => scrollTo(s.id)} title={s.label} style={{
-            width: active === s.id ? "20px" : "4px",
-            height: "4px", borderRadius: "2px",
-            background: active === s.id ? "var(--gold)" : "rgba(255,255,255,0.18)",
-            border: "none", cursor: "none",
-            transition: "all 0.3s ease", padding: 0,
-          }} />
+          <button
+            key={s.id}
+            onClick={() => scrollTo(s.id)}
+            aria-label={`Go to ${s.label}`}
+            aria-current={active === s.id ? "true" : undefined}
+            style={{
+              width: "44px", height: "44px",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              background: "none", border: "none", cursor: "none", padding: 0,
+            }}>
+            <span style={{
+              display: "block",
+              width: active === s.id ? "20px" : "4px",
+              height: "4px", borderRadius: "2px",
+              background: active === s.id ? "var(--gold)" : "rgba(255,255,255,0.18)",
+              transition: "all 0.3s ease",
+            }} />
+          </button>
         ))}
       </div>
     </>

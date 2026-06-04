@@ -106,7 +106,7 @@ export default function Venues() {
 
   return (
     <section
-      id="venues"
+      id="venues" aria-label="Venues — performing arts and expo"
       ref={ref}
       className="snap"
       style={{
@@ -323,10 +323,10 @@ export default function Venues() {
               </ul>
 
               <button
+                aria-label={`Inquire about this venue — go to contact`}
                 className="btn-gold"
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               >
-                <span>Inquire About {v.name}</span>
               </button>
             </div>
 
@@ -434,6 +434,7 @@ export default function Venues() {
           </div>
           <div style={{ display: "flex", gap: "12px" }}>
             <button
+              aria-label="View event types — go to events section"
               className="btn-gold"
               onClick={() => document.getElementById("events")?.scrollIntoView({ behavior: "smooth" })}
               style={{ borderColor: "rgba(255,255,255,0.2)", color: "var(--pearl)" }}
@@ -441,6 +442,7 @@ export default function Venues() {
               <span>View Event Types</span>
             </button>
             <button
+              aria-label="Book a site visit — go to contact"
               className="btn-gold"
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
             >

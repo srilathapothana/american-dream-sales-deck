@@ -25,7 +25,7 @@ export default function Contact() {
 
   return (
     <section
-      id="contact"
+      id="contact" aria-label="Contact — get in touch"
       ref={ref}
       className="snap"
       style={{
@@ -192,6 +192,7 @@ export default function Contact() {
                 Expect a response within 1 business day.
               </div>
               <button
+                aria-label="Send your inquiry"
                 className="btn-gold"
                 onClick={handleSubmit}
                 style={{ padding: "16px 48px" }}

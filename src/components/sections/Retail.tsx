@@ -32,7 +32,7 @@ export default function Retail() {
 
   return (
     <section
-      id="retail"
+      id="retail" aria-label="Retail — tenant mix and leasing"
       ref={ref}
       className="snap"
       style={{
@@ -197,7 +197,7 @@ export default function Retail() {
             Speak with our team to explore spaces, terms, and co-tenancy strategy.
           </p>
           <button
-            className="btn-gold"
+            aria-label="View leasing opportunities" className="btn-gold"
             onClick={() => document.getElementById("leasing")?.scrollIntoView({ behavior: "smooth" })}
           >
             <span>View Leasing Opportunities</span>

@@ -27,7 +27,7 @@ export default function Luxury() {
 
   return (
     <section
-      id="luxury"
+      id="luxury" aria-label="Luxury — premium brand corridor"
       ref={ref}
       className="snap"
       style={{
@@ -152,7 +152,7 @@ export default function Luxury() {
               </div>
 
               <button
-                className="btn-gold"
+                aria-label="Request luxury leasing package" className="btn-gold"
                 onClick={() => document.getElementById("leasing")?.scrollIntoView({ behavior: "smooth" })}
               >
                 <span>Explore Luxury Leasing</span>
