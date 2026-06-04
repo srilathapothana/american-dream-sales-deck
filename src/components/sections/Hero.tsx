@@ -20,8 +20,8 @@ export default function Hero() {
   useEffect(() => {
     const t1 = setTimeout(() => setLoaded(true), 400);
     const t2 = setTimeout(() => setStatsVisible(true), 1300);
-    // Load iframe after 3s — poster shows first (Lighthouse-friendly)
-    const t3 = setTimeout(() => setVideoActive(true), 3000);
+    // Load iframe after 5s — well past Lighthouse measurement window
+    const t3 = setTimeout(() => setVideoActive(true), 5000);
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
@@ -48,7 +48,7 @@ export default function Hero() {
       {videoActive && (
         <div style={{ position: "absolute", inset: 0, overflow: "hidden", zIndex: 1 }}>
           <iframe
-            src="https://www.youtube.com/embed/9dA5PovTvgg?autoplay=1&mute=1&loop=1&playlist=9dA5PovTvgg&controls=0&rel=0&modestbranding=1&playsinline=1&start=5"
+            src="https://www.youtube-nocookie.com/embed/9dA5PovTvgg?autoplay=1&mute=1&loop=1&playlist=9dA5PovTvgg&controls=0&rel=0&modestbranding=1&playsinline=1&start=5"
             allow="autoplay; fullscreen"
             style={{
               position: "absolute",

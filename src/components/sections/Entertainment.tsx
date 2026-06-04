@@ -30,7 +30,7 @@ export default function Entertainment() {
       {visible && (
         <div style={{ position: "absolute", inset: 0, overflow: "hidden", zIndex: 0 }}>
           <iframe
-            src="https://www.youtube.com/embed/gwlgu79zBvQ?autoplay=1&mute=1&loop=1&playlist=gwlgu79zBvQ&controls=0&rel=0&modestbranding=1&playsinline=1&start=45"
+            src="https://www.youtube-nocookie.com/embed/gwlgu79zBvQ?autoplay=1&mute=1&loop=1&playlist=gwlgu79zBvQ&controls=0&rel=0&modestbranding=1&playsinline=1&start=45"
             allow="autoplay; fullscreen"
             style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "177.78vh", minWidth: "100%", height: "56.25vw", minHeight: "100%", border: "none", opacity: 0.12, pointerEvents: "none" }}
             title="American Dream Entertainment"
