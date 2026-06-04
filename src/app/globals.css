@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Bebas+Neue&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --obsidian: #050505;
+  --void: #0a0a0a;
+  --carbon: #111111;
+  --graphite: #1a1a1a;
+  --smoke: #2a2a2a;
+  --ash: #444444;
+  --silver: #888888;
+  --pearl: #cccccc;
+  --white: #f5f5f5;
+  --pure: #ffffff;
+  
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --gold-dim: #8a6f35;
+  --gold-glow: rgba(201, 168, 76, 0.15);
+  --gold-subtle: rgba(201, 168, 76, 0.06);
+  
+  --electric: #4a9eff;
+  --electric-dim: rgba(74, 158, 255, 0.2);
+  
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'DM Sans', 'Helvetica Neue', sans-serif;
+  --font-mono: 'Bebas Neue', 'Impact', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  background: var(--obsidian);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Custom cursor */
+.cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transition: transform 0.1s ease;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(201, 168, 76, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-ring.hovering {
+  width: 60px;
+  height: 60px;
+  border-color: var(--gold);
+}
+
+/* Section snap */
+section.snap {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: var(--void); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); }
+
+/* Selection */
+::selection {
+  background: var(--gold-glow);
+  color: var(--gold-light);
+}
+
+/* Typography */
+.display {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Gold line */
+.gold-line {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+/* Grain overlay */
+.grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 99990;
+  opacity: 0.4;
+}
+
+/* Video overlay */
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(5,5,5,0.3) 0%,
+    rgba(5,5,5,0.1) 40%,
+    rgba(5,5,5,0.6) 80%,
+    rgba(5,5,5,1) 100%
+  );
+}
+
+/* Animated underline */
+.hover-line {
+  position: relative;
+}
+.hover-line::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+.hover-line:hover::after {
+  width: 100%;
+}
+
+/* Number counter style */
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 300;
+  color: var(--gold-light);
+  line-height: 1;
+}
+
+/* Card hover */
+.card-hover {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              box-shadow 0.4s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.15);
+}
+
+/* Glow button */
+.btn-gold {
+  position: relative;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 14px 36px;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+.btn-gold:hover {
+  color: var(--obsidian);
+}
+.btn-gold:hover::before {
+  transform: translateX(0);
+}
+.btn-gold span {
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════
+   RESPONSIVE
+══════════════════════ */
+@media (max-width: 1024px) {
+  section { padding-left: 32px !important; padding-right: 32px !important; }
+
+  /* Retail header 2-col → 1-col on tablet */
+  #retail > div > div[style*="gridTemplateColumns: \"1fr 1fr\""],
+  #retail > div > div[style*='gridTemplateColumns: "1fr 1fr"'] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Why: data grid → 2-col on tablet */
+  #why .data-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Events: tab buttons wrap */
+  #events > div > div { flex-wrap: wrap !important; }
+
+  /* Leasing: category grid → 2-col on tablet */
+  #leasing > div > div[style*="repeat(4"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Sponsorship: tier grid → 1-col on tablet */
+  #sponsorship > div > div[style*="repeat(3"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Scale down display headings */
+  .display { font-size: clamp(2rem, 9vw, 3.5rem) !important; }
+
+  /* Section padding */
+  section { padding-left: 20px !important; padding-right: 20px !important; padding-top: 80px !important; }
+
+  /* Stats bar: 2x2 on mobile */
+  #hero > div:last-child {
+    grid-template-columns: repeat(2, 1fr) !important;
+    height: auto !important;
+    min-height: 100px;
+    padding: 16px 20px !important;
+  }
+
+  /* Buttons stack vertically */
+  .btn-gold { padding: 12px 24px !important; font-size: 0.6rem !important; }
+
+  /* Hero CTAs stack on mobile */
+  #hero div[style*="flexWrap: wrap"] { flex-direction: column !important; align-items: center !important; }
+
+  /* Hide desktop nav links on mobile — handled by hamburger */
+  nav > div > div:first-child { display: none !important; }
+
+  /* Tier / tab buttons shrink */
+  nav button[style*="padding: 10px"] { display: none !important; }
+
+  /* Leasing category tabs wrap */
+  #leasing > div > div { flex-wrap: wrap !important; }
+  #leasing > div > div > button { flex: 1 1 40% !important; }
+
+  /* Entertainment: list stacks above detail on mobile */
+  #entertainment .attraction-list { order: 2; }
+  #entertainment .attraction-detail { order: 1; min-height: 250px; }
+
+  /* Why data grid: 1-col on mobile */
+  #why .data-grid { grid-template-columns: 1fr !important; }
+
+  /* Venues: stack grid on mobile */
+  #venues .venue-detail-grid { grid-template-columns: 1fr !important; }
+
+  /* Sponsorship tiers stack on mobile */
+  #sponsorship > div > div[style*="repeat(3"] { grid-template-columns: 1fr !important; }
+
+  /* Events type selector wraps on mobile */
+  #events > div > div[style*="display: \"flex\""] { flex-wrap: wrap !important; gap: 8px !important; }
+}
+/* ══════════════════════
+   SECTION PROGRESS BAR
+══════════════════════ */
+@media (max-width: 768px) {
+  /* Hide section label text on mobile, keep dots */
+  [style*="minWidth: 72px"],
+  [style*="min-width: 72px"] {
+    display: none !important;
+  }
+}
