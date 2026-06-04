@@ -2,7 +2,7 @@
 
 A cinematic, browser-based sales tool for the American Dream mega-mall in East Rutherford, NJ. Built for the commercial team to pitch retail tenants, brand partners, and event promoters.
 
-**Live demo:** [Deploy to Vercel — see instructions below]
+**Live demo:** https://american-dream-sales-deck-ashy.vercel.app/ 
 
 ---
 
