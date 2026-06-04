@@ -37,7 +37,7 @@ export default function Contact() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        padding: "80px 60px",
+        padding: "80px 60px 160px",
       }}
     >
       {/* Decorative radial */}
@@ -251,7 +251,7 @@ export default function Contact() {
       {/* Footer */}
       <div style={{
         position: "absolute",
-        bottom: "32px",
+        bottom: "100px",
         left: "60px",
         right: "60px",
         display: "flex",
