@@ -238,6 +238,7 @@ export default function Events() {
               className="btn-gold"
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
             >
+              <span>Book This Event Type</span>
             </button>
           </div>
         </div>

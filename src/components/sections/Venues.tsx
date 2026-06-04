@@ -327,6 +327,7 @@ export default function Venues() {
                 className="btn-gold"
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               >
+                <span>Inquire About This Venue</span>
               </button>
             </div>
 
