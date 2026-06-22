@@ -20,9 +20,8 @@ export default function Hero() {
   useEffect(() => {
     const t1 = setTimeout(() => setLoaded(true), 400);
     const t2 = setTimeout(() => setStatsVisible(true), 1300);
-    // Load iframe after 5s — well past Lighthouse measurement window
-    const t3 = setTimeout(() => setVideoActive(true), 5000);
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+    setVideoActive(true);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
 
   return (
